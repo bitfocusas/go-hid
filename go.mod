@@ -4,5 +4,5 @@ go 1.17
 
 require (
 	github.com/sstallion/go-tools v1.0.1
-	golang.org/x/sys v0.8.0
+	golang.org/x/sys v0.30.0
 )

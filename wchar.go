@@ -71,8 +71,9 @@ func wcstogo(wcs *C.wchar_t) string {
 	cs := (*C.char)(calloc(n, C.size_t(C.MB_CUR_MAX)))
 	defer C.free(unsafe.Pointer(cs))
 
-	if n, err := C.wcstombs(cs, wcs, n); C.iswerr(n) {
-		panic(err)
+	if n := C.wcstombs(cs, wcs, n); C.iswerr(n) {
+		return "[N/A]"
+		//panic(err)
 	}
 	return C.GoString(cs)
 }
